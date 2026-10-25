@@ -1,12 +1,13 @@
 import React from 'react'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
+import type { Footer as FooterType } from '@/payload-types'
 
 const Footer = async () => {
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
 
-  let footer: Awaited<ReturnType<typeof payload.findGlobal>> | null = null
+  let footer: FooterType | null = null
 
   try {
     footer = await payload.findGlobal({ slug: 'footer' })

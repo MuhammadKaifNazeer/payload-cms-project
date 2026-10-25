@@ -45,7 +45,7 @@ export const Posts: CollectionConfig = {
       name: 'author',
       type: 'relationship',
       relationTo: 'users',
-      required: true,
+      required: false,
       label: 'Author',
     },
     {

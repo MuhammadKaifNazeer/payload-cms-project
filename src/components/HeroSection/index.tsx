@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { getPayload } from 'payload'
+import type { Hero as HeroType } from '@/payload-types'
 
 import config from '@/payload.config'
 import { buttonVariants } from '@/components/ui/button'
@@ -9,7 +10,7 @@ const HeroSection = async () => {
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
 
-  let hero: Awaited<ReturnType<typeof payload.findGlobal>> | null = null
+  let hero: HeroType | null = null
 
   try {
     hero = await payload.findGlobal({ slug: 'hero' })

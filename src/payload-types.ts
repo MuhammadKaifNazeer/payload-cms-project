@@ -231,7 +231,7 @@ export interface Post {
   slug: string;
   excerpt?: string | null;
   coverImage?: (number | null) | Media;
-  author: number | User;
+  author?: (number | null) | User;
   publishedAt?: string | null;
   content: {
     root: {

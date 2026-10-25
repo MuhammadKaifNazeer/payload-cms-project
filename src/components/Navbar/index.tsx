@@ -4,19 +4,19 @@ import config from '@/payload.config'
 import { Button } from '@/components/ui/button'
 import { ThemeToggler } from '@/components/theme-toggler'
 import Link from 'next/link'
+import type { Navbar as NavbarType } from '@/payload-types'
 
 const Navbar = async () => {
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
 
-  let navbar: Awaited<ReturnType<typeof payload.findGlobal>> | null = null
+  let navbar: NavbarType | null = null
 
   try {
     navbar = await payload.findGlobal({ slug: 'navbar' })
   } catch {
     navbar = null
   }
-
   const navLinks = navbar?.navLinks ?? []
   const logo = navbar?.logo ?? null
   const logoUrl =
