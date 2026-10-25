@@ -37,5 +37,8 @@ test.describe('Admin Panel', () => {
     await expect(page).toHaveURL(/\/admin\/collections\/users\/[a-zA-Z0-9-_]+/)
     const editViewArtifact = page.locator('input[name="email"]')
     await expect(editViewArtifact).toBeVisible()
+    const nameField = page.locator('input[name="name"]')
+    await expect(nameField).toBeVisible()
+    await expect(nameField).not.toHaveAttribute('required')
   })
 })

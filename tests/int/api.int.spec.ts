@@ -17,4 +17,11 @@ describe('API', () => {
     })
     expect(users).toBeDefined()
   })
+
+  it('fetches services', async () => {
+    const services = await payload.find({
+      collection: 'services',
+    })
+    expect(services).toBeDefined()
+  })
 })
